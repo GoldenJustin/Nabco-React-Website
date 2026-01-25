@@ -1,0 +1,83 @@
+:root {
+    --gold: #D4AF37;
+    --light-gold: #F4E4C1;
+    --black: #000000;
+    --dark-gray: #1A1A1A;
+    --darker-gray: #2A2A2A;
+    --light-gray: #B0B0B0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html, #root {
+    background-color: var(--black) !important;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: bold; color: var(--gold); line-height: 1.2; }
+
+.page-header-spacing { padding: 160px 8% 40px; }
+
+/* HERO SECTION - HOME PAGE */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 { color: white !important; }
+.hero h1 .highlight { color: var(--gold) !important; }
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #ccc;
+    max-width: 850px;
+    margin: 25px auto 0; /* Margin bottom is now handled by the button container */
+}
+
+/* BUTTONS CONTAINER - FIXED SPACING */
+.cta-buttons { 
+    display: flex; 
+    gap: 30px; /* Increased from 15px to prevent touching */
+    justify-content: center; 
+    margin-top: 45px; /* More space from the text above */
+}
+
+.btn {
+    padding: 1rem 2.5rem; /* Slightly wider padding for a more premium feel */
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px; /* Ensures buttons have consistent width */
+}
+
+.btn-primary { background-color: var(--gold); color: var(--black); border: 2px solid var(--gold); }
+.btn-primary:hover { background-color: var(--light-gold); border-color: var(--light-gold); transform: translateY(-3px); }
+
+.btn-secondary { background-color: transparent; color: var(--gold); border: 2px solid var(--gold); }
+.btn-secondary:hover { background-color: var(--gold); color: var(--black); transform: translateY(-3px); }
+
+/* Grid / Links */
+.argon-link { text-decoration: none; border-bottom: 2px solid #333; padding-bottom: 20px; display: block; transition: 0.4s; }
+.argon-link:hover { border-bottom: 2px solid var(--gold); transform: translateX(10px); }
+.argon-link h3 { color: white; font-size: 1.8rem; font-weight: 400; }
+.argon-link:hover h3 { color: var(--gold); }
+
+.image-container { position: relative; overflow: hidden; border: 1px solid var(--gold); }
+.image-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.image-container:hover img { transform: scale(1.1); }
+.image-overlay-text { position: absolute; bottom: 20px; left: 20px; color: white; font-weight: bold; font-size: 1.2rem; }
