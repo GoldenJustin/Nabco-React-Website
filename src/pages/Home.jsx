@@ -39,6 +39,26 @@ const Home = () => (
             </p>
           </a>
 
+          <a href="https://consult.saharaventures.com/partner-and-client" target="_blank" rel="noopener noreferrer" className="card-art">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <h3>Sahara Consult</h3>
+              <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
+            </div>
+            <p style={{ color: '#aaa', fontSize: '1rem', margin: 0 }}>
+              A Management Consulting Firm
+            </p>
+          </a>
+
+          <a href="https://www.okala.io/" target="_blank" rel="noopener noreferrer" className="card-art">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <h3>Okala</h3>
+              <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
+            </div>
+            <p style={{ color: '#aaa', fontSize: '1rem', margin: 0 }}>
+              A Global Partner for Science-Driven Nature Insights
+            </p>
+          </a>
+
         </div>
       </div>
     </section>

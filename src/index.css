@@ -116,13 +116,73 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
 .img-box:hover img { transform: scale(1.05); }
 .img-label { position: absolute; bottom: 20px; left: 20px; color: white; font-weight: 700; font-size: 1.2rem; }
 
-/* SV - SERVICES ARGON GRID */
+/* SV - SERVICES ARGON GRID
 .sv-list-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 40px; }
 .sv-item { border-bottom: 2px solid #333; padding-bottom: 20px; transition: 0.4s; display: block; }
 .sv-item:hover { border-bottom: 2px solid var(--gold); transform: translateX(10px); }
 .sv-item h3 { color: white; font-size: 1.65rem; transition: 0.3s; font-weight: 500; }
+.sv-item:hover h3 { color: var(--gold) !important; } */
+
+/* SV - SERVICES GRID (2-2-1 Arrangement) */
+.sv-list-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px 40px; 
+}
+
+/* Featured 5th Item Wrapper */
+.sv-featured-wrapper {
+    grid-column: 1 / -1; /* Spans both columns */
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Advanced Capabilities - Featured Card Design */
+.sv-item-featured {
+    width: 60%; /* Smaller width for a centered "box" look */
+    background: #0a0a0a;
+    border: 1px solid #222;
+    border-top: 3px solid var(--gold); /* Thick gold top-border for premium feel */
+    padding: 50px 40px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.sv-item-featured:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    background: #0f0f0f;
+}
+
+.sv-item-featured h3 {
+    color: var(--gold) !important;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Standard Services Items */
+.sv-item { 
+    border-bottom: 2px solid #333; 
+    padding-bottom: 20px; 
+    transition: 0.4s; 
+    display: block; 
+}
+
+.sv-item:hover { 
+    border-bottom: 2px solid var(--gold); 
+    transform: translateX(10px); 
+}
+
+.sv-item h3 { color: white; font-size: 1.65rem; transition: 0.3s; font-weight: 500; }
 .sv-item:hover h3 { color: var(--gold) !important; }
 
+/* Responsive fix */
+@media (max-width: 850px) {
+    .sv-list-grid { grid-template-columns: 1fr; }
+    .sv-item-featured { width: 100%; }
+}
 /* TM - TEAM PHOTO (GRAYSCALE TO COLOR) */
 .tm-frame { border: 1px solid var(--gold); padding: 10px; border-radius: 4px; transition: 0.3s; }
 .tm-frame img { width: 100%; display: block; filter: grayscale(100%); transition: 0.7s; }

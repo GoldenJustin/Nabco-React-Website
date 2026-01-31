@@ -2,11 +2,9 @@ import React from 'react';
 const WhatWeDo = () => (
   <div style={{ background: 'var(--black)', color: 'white', minHeight: '100vh' }}>
     <section className="hp-hero" style={{ height: '60vh' }}>
-      <div className="master-container"><h1>What we do</h1><p style={{marginTop:'20px', color:'#eee', fontSize: '1.3rem'}}>We help organisations understand performance challenges, make better decisions, and implement improvements that can be sustained.</p></div>
+      <div className="master-container"><h1>What we do</h1><p style={{ marginTop: '20px', color: '#eee', fontSize: '1.3rem' }}>We help organisations understand performance challenges, make better decisions, and implement improvements that can be sustained.</p></div>
     </section>
     <div className="master-container" style={{ padding: '100px 0' }}>
-      <h2 style={{textAlign:'left'}}>Help organisations navigate performance challenges</h2>
-      <p style={{marginBottom:'40px'}}>Often, organisations experience performance issues that are difficult to pinpoint, arising from delays, inefficiencies, unclear accountability, or inconsistent results. We support organisations in understanding and addressing challenges in a structured and practical way.</p>
       <div className="wwd-grid">
         {/* Item 01 */}
         <div className="wwd-item">
@@ -55,7 +53,20 @@ const WhatWeDo = () => (
             Our work begins with diagnosis. We work closely with organisation leaders and operational teams to understand how the organisation functions in practice; how work flows, how decisions are made, and where risks and constraints emerge.
           </p>
         </div>
+
+        {/* Item 05 */}
+        <div className="wwd-item">
+          <div className="wwd-header">
+            <span className="wwd-number">05</span>
+            <div className="wwd-line"></div>
+            <h3 className="wwd-title">Help organisations navigate performance challenges</h3>
+          </div>
+          <p className="wwd-desc">
+            Often, organisations experience performance issues that are difficult to pinpoint, arising from delays, inefficiencies, unclear accountability, or inconsistent results. We support organisations in understanding and addressing challenges in a structured and practical way.           </p>
+        </div>
       </div>
+
+
 
       {/* Summary Footer Text - Verbatim */}
       <div style={{ marginTop: '80px', borderTop: '1px solid #222', paddingTop: '40px' }}>
