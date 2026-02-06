@@ -1,16 +1,70 @@
-import React from 'react';
-const Contact = () => (
+import React, { useState } from 'react';
+
+const Contact = () => {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+    
+    const formData = new FormData(e.target);
+    
+    // We use FormSubmit.co (a free service) to send the email
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@nabco.co.tz", {
+        method: "POST",
+        body: formData
+      });
+      
+      if (response.ok) {
+        setStatus("success");
+        e.target.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
+  return (
   <div style={{ background: 'var(--black)', minHeight: '100vh', paddingBottom: '100px' }}>
     <div className="master-container">
       <div className="header-spacing"><h1>Contact Us</h1></div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', border: '1px solid #222', borderRadius: '15px', overflow: 'hidden' }}>
         <div style={{ padding: '60px', background: '#0a0a0a' }}>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-            <div><label style={{ color: 'var(--gold)', display: 'block', marginBottom: '8px' }}>Name</label><input type="text" style={{ width: '100%', padding: '12px', background: 'black', border: '1px solid #333', color: 'white' }} /></div>
-            <div><label style={{ color: 'var(--gold)', display: 'block', marginBottom: '8px' }}>Email</label><input type="email" style={{ width: '100%', padding: '12px', background: 'black', border: '1px solid #333', color: 'white' }} /></div>
-            <div><label style={{ color: 'var(--gold)', display: 'block', marginBottom: '8px' }}>Message</label><textarea rows="5" style={{ width: '100%', padding: '12px', background: 'black', border: '1px solid #333', color: 'white' }}></textarea></div>
-            <button type="submit" className="btn-solid" style={{ width: '100%', border:'none' }}>Send Message</button>
-          </form>
+          {status === "success" ? (
+                <div style={{ textAlign: 'center', padding: '40px' }}>
+                  <h3 style={{ color: 'var(--gold)', marginBottom: '15px' }}>Message Received!</h3>
+                  <p style={{ color: 'white' }}>Thank you for reaching out. We will get back to you shortly.</p>
+                  <button onClick={() => setStatus("")} className="nb-btn-contact" style={{ marginTop: '20px', width: 'auto' }}>Send Another Message</button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+                  
+                  {/* Hidden field for FormSubmit configuration */}
+                  <input type="hidden" name="_subject" value="New Contact from NABCO Website" />
+                  
+                  <div>
+                    <label style={{ color: 'var(--gold)', display: 'block', marginBottom: '8px', fontWeight: '600' }}>Name</label>
+                    <input type="text" name="name" required style={{ width: '100%', padding: '15px', background: 'black', border: '1px solid #333', color: 'white', borderRadius: '4px' }} />
+                  </div>
+                  <div>
+                    <label style={{ color: 'var(--gold)', display: 'block', marginBottom: '8px', fontWeight: '600' }}>Email</label>
+                    <input type="email" name="email" required style={{ width: '100%', padding: '15px', background: 'black', border: '1px solid #333', color: 'white', borderRadius: '4px' }} />
+                  </div>
+                  <div>
+                    <label style={{ color: 'var(--gold)', display: 'block', marginBottom: '8px', fontWeight: '600' }}>Message</label>
+                    <textarea name="message" required rows="6" style={{ width: '100%', padding: '15px', background: 'black', border: '1px solid #333', color: 'white', borderRadius: '4px' }}></textarea>
+                  </div>
+                  
+                  <button type="submit" className="nb-btn-contact" disabled={status === "sending"}>
+                    {status === "sending" ? "Sending..." : "Send Message"}
+                  </button>
+
+                  {status === "error" && <p style={{ color: 'red', marginTop: '10px' }}>Something went wrong. Please try again.</p>}
+                </form>
+              )}
         </div>
         <div style={{ padding: '60px', background: '#050505', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <h3 style={{ color: 'white', marginBottom: '30px', fontSize: '1.8rem' }}>Office Information</h3>
@@ -39,4 +93,5 @@ const Contact = () => (
     </div>
   </div>
 );
+};
 export default Contact;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -15,9 +16,11 @@ const MissionVision = () => {
   return (
     <div style={{ background: 'var(--black)', minHeight: '100vh', paddingBottom: '120px' }}>
       <div className="master-container">
-        <div className="header-spacing"><h1>Mission & Vision</h1>          
-        <p style={{ maxWidth: '900px', fontSize: '1.25rem', marginTop: '20px', color: '#ccc' }}>NAB & Co. Consulting is a performance-driven management consulting firm. Our work is shaped by our founder, Nyaeri Bwana, whose passion for organisational performance and data-driven decision-making guides how we work with clients.</p>
-</div>
+        <div className="header-spacing">
+          <Link to="/about" className="nb-back-link">← Back to About</Link>
+          <h1>Mission & Vision</h1>
+          <p style={{ maxWidth: '900px', fontSize: '1.25rem', marginTop: '20px', color: '#ccc' }}>NAB & Co. Consulting is a performance-driven management consulting firm. Our work is shaped by our founder, Nyaeri Bwana, whose passion for organisational performance and data-driven decision-making guides how we work with clients.</p>
+        </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginBottom: '100px' }}>
           <div className="card-art"><h3>Our Mission</h3><p>To help organisations achieve measurable performance improvement by diagnosing root causes, strengthening systems, and supporting better decision-making through evidence-based consulting, systems thinking, and AI-supported analysis where appropriate.</p></div>
           <div className="card-art" style={{ border: '1px solid var(--gold)' }}><h3>Our Vision</h3><p>To be a trusted management consulting firm in East Africa, recognised for delivering sustainable performance improvement and practical transformation.</p></div>
@@ -25,7 +28,7 @@ const MissionVision = () => {
         <h2>Our Core Values</h2>
         <Swiper modules={[Pagination, Autoplay]} spaceBetween={20} slidesPerView={1} slidesPerGroup={1} autoplay={{ delay: 3500 }} pagination={{ clickable: true }} breakpoints={{ 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }} style={{ paddingBottom: '60px' }}>
           {values.map((v, i) => (
-            <SwiperSlide key={i}><div style={{height:'100%', display:'flex', padding:'10px'}}><div className="card-art" style={{alignItems:'center', textAlign:'center'}}><div style={{width:'35px', height:'35px', marginBottom:'20px', color:'var(--gold)'}}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div><h3>{v.t}</h3><p style={{ fontSize: '1rem', color: '#aaa' }}>{v.d}</p></div></div></SwiperSlide>
+            <SwiperSlide key={i}><div style={{ height: '100%', display: 'flex', padding: '10px' }}><div className="card-art" style={{ alignItems: 'center', textAlign: 'center' }}><div style={{ width: '35px', height: '35px', marginBottom: '20px', color: 'var(--gold)' }}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div><h3>{v.t}</h3><p style={{ fontSize: '1rem', color: '#aaa' }}>{v.d}</p></div></div></SwiperSlide>
           ))}
         </Swiper>
       </div>

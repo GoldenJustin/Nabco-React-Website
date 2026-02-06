@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 const Approach = () => (
   <div style={{ background: 'var(--black)', minHeight: '100vh', paddingBottom: '100px' }}>
     <div className="master-container">
-      <div className="header-spacing"><h1>Our Approach</h1></div>
+      <div className="header-spacing">
+        <Link to="/about" className="nb-back-link">← Back to About</Link>
+        <h1>Our Approach</h1></div>
       <div style={{ maxWidth: '900px' }}>
         <p style={{ fontSize: '1.4rem', color: 'var(--gold)', marginBottom: '30px' }}>Our approach is diagnostic-led.</p>
         <p>Our approach is diagnostic-led. We focus on understanding how people, processes, data, and structures interact in real operating environments to identify root causes and design targeted, measurable, and sustainable improvements.</p>

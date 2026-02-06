@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 const WhatWeDo = () => (
   <div style={{ background: 'var(--black)', color: 'white', minHeight: '100vh' }}>
     <section className="hp-hero" style={{ height: '60vh' }}>
-      <div className="master-container"><h1>What we do</h1><p style={{ marginTop: '20px', color: '#eee', fontSize: '1.3rem' }}>We help organisations understand performance challenges, make better decisions, and implement improvements that can be sustained.</p></div>
+      <div className="master-container">
+        <h1>What we do</h1><p style={{ marginTop: '20px', color: '#eee', fontSize: '1.3rem' }}>We help organisations understand performance challenges, make better decisions, and implement improvements that can be sustained.</p></div>
     </section>
     <div className="master-container" style={{ padding: '100px 0' }}>
+      <Link to="/about" className="nb-back-link">← Back to About</Link>
+
       <div className="wwd-grid">
         {/* Item 01 */}
         <div className="wwd-item">
