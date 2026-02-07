@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -22,9 +23,11 @@ const ServiceDetail = () => {
   return (
     <div style={{ background: 'var(--black)', minHeight: '100vh', paddingBottom: '120px' }}>
       <div className="master-container">
-        <div className="header-spacing"><h1 style={{color:'var(--gold)'}}>{s.title}</h1><p style={{fontSize:'1.4rem', marginTop:'30px', maxWidth:'1000px'}}>{s.p}</p></div>
+        
+        <div className="header-spacing"><Link to="/services" className="nb-back-link">← Back to Services</Link><h1 style={{color:'var(--gold)'}}>{s.title}</h1><p style={{fontSize:'1.4rem', marginTop:'30px', maxWidth:'1000px'}}>{s.p}</p></div>
         {!s.isAdvanced ? (
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
+            
             <div><h2 style={{ textAlign: 'left', color: 'var(--gold)', fontSize: '1.8rem', marginBottom:'30px' }}>How we help</h2><p style={{fontSize:'1.2rem', color:'#ccc'}}>{s.help}</p></div>
             <div className="card-art" style={{background:'#0a0a0a'}}><h3>Typical situations:</h3><ul style={{listStyle:'none'}}>{s.situations.map((item, i) => (<li key={i} style={{color:'#aaa', marginBottom:'15px'}}>• {item}</li>))}</ul></div>
           </div>

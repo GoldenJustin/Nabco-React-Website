@@ -19,7 +19,7 @@ const MissionVision = () => {
         <div className="header-spacing">
           <Link to="/about" className="nb-back-link">← Back to About</Link>
           <h1>Mission, Vision & Values</h1>
-          <p style={{ maxWidth: '900px', fontSize: '1.25rem', marginTop: '20px', color: '#ccc' }}>NAB & Co. Consulting is a performance-driven management consulting firm. Our work is shaped by our founder, Nyaeri Bwana, whose passion for organisational performance and data-driven decision-making guides how we work with clients.</p>
+          <p style={{ maxWidth: '900px', fontSize: '1.25rem', marginTop: '20px', color: '#ccc' }}>Our work is shaped by our founder, Nyaeri Bwana, whose passion for organisational performance and data-driven decision-making guides how we work with clients.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginBottom: '100px' }}>
           <div className="card-art"><h3>Our Mission</h3><p>To help organisations achieve measurable performance improvement by diagnosing root causes, strengthening systems, and supporting better decision-making through evidence-based consulting, systems thinking, and AI-supported analysis where appropriate.</p></div>

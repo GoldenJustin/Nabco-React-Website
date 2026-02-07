@@ -72,12 +72,12 @@ const WhatWeDo = () => (
 
 
 
-      {/* Summary Footer Text - Verbatim */}
+      {/* Summary Footer Text - Verbatim
       <div style={{ marginTop: '80px', borderTop: '1px solid #222', paddingTop: '40px' }}>
         <p style={{ color: 'var(--gold)', fontStyle: 'italic', textAlign: 'center', fontSize: '1.1rem', maxWidth: '900px', margin: '0 auto' }}>
           By examining people, processes, data, and structures together, we identify root causes and patterns that explain why challenges persist.
         </p>
-      </div>
+      </div> */}
     </div>
   </div>
 );
