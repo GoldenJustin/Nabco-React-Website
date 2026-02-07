@@ -23,7 +23,7 @@ const MissionVision = () => {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginBottom: '100px' }}>
           <div className="card-art"><h3>Our Mission</h3><p>To help organisations achieve measurable performance improvement by diagnosing root causes, strengthening systems, and supporting better decision-making through evidence-based consulting, systems thinking, and AI-supported analysis where appropriate.</p></div>
-          <div className="card-art" style={{ border: '1px solid var(--gold)' }}><h3>Our Vision</h3><p>To be a trusted management consulting firm in East Africa, recognised for delivering sustainable performance improvement and practical transformation.</p></div>
+          <div className="card-art"><h3>Our Vision</h3><p>To be a trusted management consulting firm in East Africa, recognised for delivering sustainable performance improvement and practical transformation.</p></div>
         </div>
         <h2>Our Core Values</h2>
         <Swiper modules={[Pagination, Autoplay]} spaceBetween={20} slidesPerView={1} slidesPerGroup={1} autoplay={{ delay: 3500 }} pagination={{ clickable: true }} breakpoints={{ 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }} style={{ paddingBottom: '60px' }}>

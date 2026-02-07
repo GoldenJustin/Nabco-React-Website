@@ -11,7 +11,7 @@ const Navbar = () => {
           <li><Link to="/" style={active('/')}>Home</Link></li>
           <li><Link to="/about" style={active('/about')}>About</Link></li>
           <li><Link to="/services" style={active('/services')}>Services</Link></li>
-          <li><Link to="/team" style={active('/team')}>Team</Link></li>
+          <li><Link to="/team" style={active('/team')}>Our Team</Link></li>
           <li><Link to="/contact" style={active('/contact')}>Contact Us</Link></li>
         </ul>
       </div>
