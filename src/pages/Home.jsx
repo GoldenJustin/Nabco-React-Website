@@ -1,38 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 // Logo Imports
 import marilogLogo from '../assets/marilog.png';
 import zmLogo from '../assets/zm.png';
 import saharaLogo from '../assets/sahara.png';
-import okalaLogo from '../assets/okala.svg'; // Handled as SVG
+import okalaLogo from '../assets/okala.svg';
+import pmzLogo from '../assets/pmzafrica.png';
 
 const Home = () => {
   const partners = [
     {
       name: "Marilog Africa",
       url: "https://a.marilogafrica.com/",
-      logo: marilogLogo,
-      desc: "Strategic logistics and supply chain solutions partner"
+      logo: marilogLogo
     },
     {
       name: "ZM Procurement Solutions",
       url: "https://zmprocurementsolutions.com/",
-      logo: zmLogo,
-      desc: "Procurement and supply management expertise"
+      logo: zmLogo
     },
     {
       name: "Sahara Consult",
       url: "https://consult.saharaventures.com/partner-and-client",
-      logo: saharaLogo,
-      desc: "A Management Consulting Firm"
+      logo: saharaLogo
     },
     {
       name: "Okala",
       url: "https://www.okala.io/",
-      logo: okalaLogo,
-      desc: "A Global Partner for Science-Driven Nature Insights"
-    }
+      logo: okalaLogo
+    },
+    {
+      name: "PMZ Africa",
+      url: "https://pmzafrica.com/",
+      logo: pmzLogo
+    },
   ];
 
   return (
@@ -47,90 +54,33 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* STRATEGIC PARTNERS SECTION */}
-      {/* <section className="hp-pt-section">
-      <div className="master-container">
-        <h2 className="hp-pt-title">Our Strategic Partners</h2>
-        
-        <div className="hp-pt-grid">
-          
-          <a href="https://a.marilogafrica.com/" target="_blank" rel="noopener noreferrer" className="card-art">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-              <h3>Marilog Africa</h3>
-              <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
-            </div>
-            <p style={{ color: '#aaa', fontSize: '1rem', margin: 0 }}>
-              Strategic logistics and supply chain solutions partner
-            </p>
-          </a>
 
-          <a href="https://zmprocurementsolutions.com/" target="_blank" rel="noopener noreferrer" className="card-art">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-              <h3>ZM Procurement Solutions</h3>
-              <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
-            </div>
-            <p style={{ color: '#aaa', fontSize: '1rem', margin: 0 }}>
-              Procurement and supply management expertise
-            </p>
-          </a>
-
-          <a href="https://consult.saharaventures.com/partner-and-client" target="_blank" rel="noopener noreferrer" className="card-art">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-              <h3>Sahara Consult</h3>
-              <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
-            </div>
-            <p style={{ color: '#aaa', fontSize: '1rem', margin: 0 }}>
-              A Management Consulting Firm
-            </p>
-          </a>
-
-          <a href="https://www.okala.io/" target="_blank" rel="noopener noreferrer" className="card-art">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-              <h3>Okala</h3>
-              <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
-            </div>
-            <p style={{ color: '#aaa', fontSize: '1rem', margin: 0 }}>
-              A Global Partner for Science-Driven Nature Insights
-            </p>
-          </a>
-
-        </div>
-      </div>
-    </section> */}
-      <section className="hp-pt-section">
+      <section className="hp-pts-section">
         <div className="master-container">
-        <div className="nb-container">
-          <h2 className="hp-pt-title">Our Strategic Partners</h2>
-
-          <div className="hp-pt-grid">
-            {partners.map((partner, index) => (
-              <a
-                key={index}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-art"
-                style={{ textAlign: 'left' }}
-              >
-                {/* Logo Zone */}
-                <div className="hp-pt-logo-container">
-                  <img src={partner.logo} alt={`${partner.name} logo`} />
-                </div>
-
-                {/* Title & Arrow */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                  <h3 style={{ fontSize: '1.3rem', margin: 0 }}>{partner.name}</h3>
-                  <span style={{ color: 'var(--gold)', fontSize: '1.2rem' }}>↗</span>
-                </div>
-
-                {/* Verbatim Description */}
-                <p style={{ color: '#aaa', fontSize: '1rem', margin: 0, lineHeight: '1.5' }}>
-                  {partner.desc}
-                </p>
-              </a>
-            ))}
-          </div>
-        </div></div>
+          <div className="nb-container">
+            <h2 className="hp-pt-title">Our Strategic Partners</h2>
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 4 }
+              }}
+              className="hp-pts-swiper"
+            >
+              {partners.map((partner, index) => (
+                <SwiperSlide key={index}>
+                  <a href={partner.url} target="_blank" rel="noopener noreferrer" className="hp-pts-logo-card">
+                    <img src={partner.logo} alt={partner.name} title={partner.name} />
+                  </a>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div></div>
       </section>
     </div>
   );

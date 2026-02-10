@@ -25,16 +25,11 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
 .btn-outline { padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; transition: 0.3s; border: 2px solid var(--gold); color: var(--gold); min-width: 230px; text-align: center; background: transparent; cursor: pointer; }
 .btn-outline:hover { background: var(--gold); color: black; }
 
-/* --- HOMEPAGE PARTNERS (ISOLATED) --- */
-.hp-pt-section {
-    padding: 100px 0;
-    border-top: 1px solid #111;
-}
-
+/* --- STRATEGIC PARTNERS SLIDER ISOLATION --- */
 .hp-pt-title {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 700;
-    color: white;
+    color: #D4AF37;
     text-align: left; /* Matches your image alignment */
     margin-bottom: 50px;
 }
@@ -43,6 +38,48 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+}
+
+.hp-pts-section {
+    padding: 100px 0;
+    border-top: 1px solid #111;
+    background-color: var(--black);
+}
+
+.hp-pts-logo-card {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.hp-pts-logo-card:hover {
+    border-color: var(--gold);
+    background: #0f0f0f;
+    transform: translateY(-5px);
+}
+
+.hp-pts-logo-card img {
+    max-height: 50px;
+    max-width: 80%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: 0.4s ease;
+}
+
+.hp-pts-logo-card:hover img {
+    filter: grayscale(0%) opacity(1);
+}
+
+/* Fix for swiper sizing in this section */
+.hp-pts-swiper {
+    padding: 40px 0 60px !important;
 }
 
 /* --- WHAT WE DO ISOLATED DESIGN --- */
@@ -301,3 +338,481 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
 .ft-logo { font-size: 1.8rem; color: var(--gold); font-weight: 700; margin: 0 !important; padding: 0 !important; text-align: left; }
 .swiper-slide { height: auto !important; display: flex !important; }
 .swiper-pagination-bullet-active { background: var(--gold) !important; }
+
+/* ============================================
+   NAB & Co. Responsive Styles
+   Add this file to your project to enable 
+   mobile and tablet responsiveness
+   ============================================ */
+
+/* ============================================
+   HAMBURGER MENU STYLES
+   ============================================ */
+
+/* Hamburger button - hidden on desktop */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.hamburger-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when active */
+.hamburger-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ============================================
+   TABLET STYLES (768px - 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .master-container {
+    padding: 0 1.5rem;
+  }
+
+  .header-spacing {
+    padding-top: 150px;
+    padding-bottom: 50px;
+  }
+
+  /* Hero section */
+  .hp-hero h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hp-hero p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  /* Partner grid */
+  .hp-pt-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* What we do grid */
+  .wwd-grid {
+    grid-template-columns: 1fr;
+    gap: 40px 60px;
+  }
+
+  /* About grid */
+  .ab-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px;
+    gap: 15px;
+  }
+
+  /* Services grid */
+  .sv-list-grid {
+    grid-template-columns: 1fr;
+    gap: 40px 30px;
+  }
+
+  .sv-item-featured {
+    width: 80%;
+  }
+}
+
+/* ============================================
+   MOBILE STYLES (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Container adjustments */
+  .master-container {
+    padding: 0 1rem;
+  }
+
+  .header-spacing {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  /* ==========================================
+     NAVIGATION - HAMBURGER MENU
+     ========================================== */
+  
+  /* Show hamburger button */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Navigation container adjustments */
+  header {
+    padding: 1rem 0;
+  }
+
+  header .master-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Mobile menu overlay */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.98);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+  }
+
+  nav.active {
+    transform: translateX(0);
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  /* Logo stays visible */
+  header .logo {
+    z-index: 1100;
+  }
+
+  /* ==========================================
+     HERO SECTION
+     ========================================== */
+  .hp-hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 120px 1rem 60px;
+  }
+
+  .hp-hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .hp-hero .hp-gold {
+    margin-top: 8px;
+  }
+
+  .hp-hero p {
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 0 0.5rem;
+  }
+
+  /* Hero buttons */
+  .hp-btn-wrap {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 35px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn-gold,
+  .btn-outline {
+    width: 100%;
+    min-width: unset;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* ==========================================
+     PARTNERS SECTION
+     ========================================== */
+  .hp-pt-section {
+    padding: 60px 0;
+  }
+
+  .hp-pt-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .card-art {
+    padding: 25px;
+  }
+
+  .hp-pt-logo-container {
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .hp-pt-logo-container img {
+    max-width: 150px;
+  }
+
+  .card-art h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  /* ==========================================
+     WHAT WE DO SECTION
+     ========================================== */
+  .wwd-wrapper {
+    padding-bottom: 60px;
+  }
+
+  .wwd-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .wwd-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .wwd-number {
+    font-size: 1rem;
+    min-width: 20px;
+  }
+
+  .wwd-line {
+    width: 30px;
+  }
+
+  .wwd-title {
+    font-size: 1.1rem;
+  }
+
+  .wwd-desc {
+    padding-left: 0;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ==========================================
+     ABOUT PAGE GRID
+     ========================================== */
+  .ab-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    margin-bottom: 50px;
+  }
+
+  .ab-img-box {
+    height: 200px;
+  }
+
+  .img-label {
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.1rem;
+  }
+
+  /* ==========================================
+     SERVICES PAGE
+     ========================================== */
+  .sv-list-grid {
+    grid-template-columns: 1fr;
+    gap: 30px 20px;
+  }
+
+  .sv-item-featured {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .sv-item-featured h3 {
+    font-size: 1.4rem;
+  }
+
+  .sv-item h3 {
+    font-size: 1.3rem;
+  }
+
+  /* ==========================================
+     TEAM PAGE
+     ========================================== */
+  .tm-frame {
+    padding: 8px;
+  }
+
+  /* ==========================================
+     CONTACT PAGE
+     ========================================== */
+  .nb-btn-contact {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  /* ==========================================
+     FOOTER
+     ========================================== */
+  footer {
+    padding: 40px 0 20px;
+  }
+
+  .ft-logo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  footer .master-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  footer .quick-links,
+  footer .get-in-touch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  footer h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  footer a {
+    font-size: 0.95rem;
+  }
+
+  .copyright {
+    font-size: 0.85rem;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+  }
+
+  /* ==========================================
+     BACK LINK
+     ========================================== */
+  .nb-back-link {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE STYLES (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .master-container {
+    padding: 0 0.75rem;
+  }
+
+  .hp-hero h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .hp-hero p {
+    font-size: 0.95rem;
+  }
+
+  .hp-pt-title {
+    font-size: 1.3rem;
+  }
+
+  .card-art {
+    padding: 20px;
+  }
+
+  .wwd-title {
+    font-size: 1rem;
+  }
+
+  .wwd-desc {
+    font-size: 0.9rem;
+  }
+
+  .sv-item h3 {
+    font-size: 1.15rem;
+  }
+
+  .ab-img-box {
+    height: 180px;
+  }
+
+  .img-label {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION FIXES
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hp-hero {
+    min-height: auto;
+    padding: 100px 1rem 40px;
+  }
+
+  nav {
+    gap: 1rem;
+    padding: 60px 0;
+    overflow-y: auto;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  .card-art:hover {
+    transform: none;
+  }
+
+  .sv-item:hover {
+    transform: none;
+  }
+
+  .ab-img-box:hover img {
+    transform: none;
+  }
+
+  .btn-gold:active,
+  .btn-outline:active {
+    transform: scale(0.98);
+  }
+}
