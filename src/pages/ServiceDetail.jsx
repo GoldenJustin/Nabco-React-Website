@@ -10,11 +10,11 @@ const ServiceDetail = () => {
     "project-management": { title: "Project Management & Implementation Support", p: "Initiatives often fail not because the idea is wrong, but because delivery is weak. Projects are too complex, governance is weak, or stakeholder alignment breaks down. Teams struggle with competing priorities or lack the structure to stay on track.", help: "We bring structure, coordination, and discipline to project delivery, helping teams stay aligned and focused from planning through to implementation.", situations: ["Projects keep getting delayed", "Change doesn’t stick after go-live", "There’s no clear ownership or accountability", "Teams are stretched and juggling too much"] },
     "advanced-capabilities": { 
         title: "Advanced Capabilities", 
-        p: "We apply these capabilities selectively in complex situations where challenges are cross-functional, recurring, or require deeper analytical insight. They are used to strengthen and support our core services as standalone offerings.",
+        p: " We use these selectively when challenges cut across teams, repeat over time, or need deeper analysis. They can support our core services or be delivered as standalone work.",
         isAdvanced: true,
         parts: [
-            { t: "Systems Thinking - Led Organisational Analysis", d: "Used when problems persist across teams or return despite previous fixes. This helps Organizations to understand how different parts of the organisation interact, identify the underlying drivers of recurring issues as well as design improvements that are practical and sustainable ", s: ["Fixed before, but returns", "Involves several departments"] },
-            { t: "AI-Enabled Decision Support", d: "Used when data is complex and timely insight is critical. This helps Organizations to extract insight more quickly from complex data, improve planning through forward-looking analysis, and support confident decision-making with human oversight", s: ["We have a lot of data, but insight comes too slowly", "Decisions feel risky because the future isn’t clear"] }
+            { t: "Systems Thinking Analysis", d: "We use systems thinking to understand how different parts of the organisation interact and why issues keep coming back.", s: ["We’ve fixed it before, but it keeps returning.", "Several departments are involved."] },
+            { t: "AI-Enabled Decision Support", d: "We use AI-enabled analysis to get insight faster, test scenarios, and support planning—always with human oversight.", s: ["We have lots of data, but insight comes too slowly.", "Decisions feel risky because the future isn’t clear."] }
         ]
     }
   };
@@ -29,7 +29,7 @@ const ServiceDetail = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
             
             <div><h2 style={{ textAlign: 'left', color: 'var(--gold)', fontSize: '1.8rem', marginBottom:'30px' }}>How we help</h2><p style={{fontSize:'1.2rem', color:'#ccc'}}>{s.help}</p></div>
-            <div className="card-art" style={{background:'#0a0a0a'}}><h3>Typical situations:</h3><ul style={{listStyle:'none'}}>{s.situations.map((item, i) => (<li key={i} style={{color:'#aaa', marginBottom:'15px'}}>• {item}</li>))}</ul></div>
+            <div className="card-art" style={{background:'#0a0a0a'}}><h3>Typical situations:</h3><ul style={{listStyle:'none'}}>{s.situations.map((item, i) => (<li key={i} style={{color:'#aaa', marginBottom:'15px'}}>"{item}"</li>))}</ul></div>
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
@@ -37,7 +37,7 @@ const ServiceDetail = () => {
               <div key={i} className="card-art">
                 <h3>{p.t}</h3><p style={{color:'#ccc', marginBottom:'25px'}}>{p.d}</p>
                 <h4 style={{color:'white', marginBottom:'10px'}}>Typical situations:</h4>
-                <ul style={{listStyle:'none'}}>{p.s.map((sit, j) => (<li key={j} style={{color:'#aaa', fontSize:'0.95rem'}}>• {sit}</li>))}</ul>
+                <ul style={{listStyle:'none'}}>{p.s.map((sit, j) => (<li key={j} style={{color:'#aaa', fontSize:'0.95rem'}}>"{sit}"</li>))}</ul>
               </div>
             ))}
           </div>

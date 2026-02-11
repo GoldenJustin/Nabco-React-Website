@@ -330,9 +330,28 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
     .sv-item-featured { width: 100%; }
 }
 /* TM - TEAM PHOTO (GRAYSCALE TO COLOR) */
-.tm-frame { border: 1px solid var(--gold); padding: 10px; border-radius: 4px; transition: 0.3s; }
+/* .tm-frame { border: 1px solid var(--gold); padding: 10px; border-radius: 4px; transition: 0.3s; }
 .tm-frame img { width: 100%; display: block; filter: grayscale(100%); transition: 0.7s; }
-.tm-frame:hover img { filter: grayscale(0%); }
+.tm-frame:hover img { filter: grayscale(0%); } */
+/* --- TEAM PAGE ARTISTIC FRAME --- */
+.tm-frame { 
+    border: 1px solid var(--gold); 
+    padding: 10px; 
+    border-radius: 4px; 
+    transition: 0.3s; 
+    background: transparent;
+}
+
+.tm-frame img { 
+    width: 100%; 
+    display: block; 
+    filter: grayscale(100%); 
+    transition: 0.7s ease; 
+}
+
+.tm-frame:hover img { 
+    filter: grayscale(0%); 
+}
 
 /* FT - FOOTER LOGO FIX */
 .ft-logo { font-size: 1.8rem; color: var(--gold); font-weight: 700; margin: 0 !important; padding: 0 !important; text-align: left; }
