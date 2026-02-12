@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const About = () => (
-  <div style={{ background: 'var(--black)', minHeight: '100vh', paddingBottom: '100px', minHeight: '100vh'  }}>
+  <div style={{ background: 'var(--black)', minHeight: '100vh', paddingBottom: '100px' }}>
     <div className="master-container">
       <div className="header-spacing"><h1>About</h1></div>
        <div style={{ maxWidth: '1000px' }}>
