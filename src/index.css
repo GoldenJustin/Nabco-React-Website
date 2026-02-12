@@ -324,16 +324,6 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
     transform: translateY(-3px);
 }
 
-/* Responsive fix */
-@media (max-width: 850px) {
-    .sv-list-grid { grid-template-columns: 1fr; }
-    .sv-item-featured { width: 100%; }
-}
-/* TM - TEAM PHOTO (GRAYSCALE TO COLOR) */
-/* .tm-frame { border: 1px solid var(--gold); padding: 10px; border-radius: 4px; transition: 0.3s; }
-.tm-frame img { width: 100%; display: block; filter: grayscale(100%); transition: 0.7s; }
-.tm-frame:hover img { filter: grayscale(0%); } */
-/* --- TEAM PAGE ARTISTIC FRAME --- */
 .tm-frame { 
     border: 1px solid var(--gold); 
     padding: 10px; 
@@ -354,484 +344,258 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
 }
 
 /* FT - FOOTER LOGO FIX */
-.ft-logo { font-size: 1.8rem; color: var(--gold); font-weight: 700; margin: 0 !important; padding: 0 !important; text-align: left; }
+/* .ft-logo { font-size: 1.8rem; color: var(--gold); font-weight: 700; margin: 0 !important; padding: 0 !important; text-align: left; }
 .swiper-slide { height: auto !important; display: flex !important; }
-.swiper-pagination-bullet-active { background: var(--gold) !important; }
+.swiper-pagination-bullet-active { background: var(--gold) !important; } */
 
-/* ============================================
-   NAB & Co. Responsive Styles
-   Add this file to your project to enable 
-   mobile and tablet responsiveness
-   ============================================ */
-
-/* ============================================
-   HAMBURGER MENU STYLES
-   ============================================ */
-
-/* Hamburger button - hidden on desktop */
-.hamburger-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 32px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1100;
+/* ============================================================
+   NAVIGATION - CLEAN & ARTISTIC (FIXED)
+   ============================================================ */
+.nav-master { 
+    position: fixed; top: 0; width: 100%; left: 0; 
+    background: rgba(0,0,0,0.98); border-bottom: 1px solid #222; z-index: 1000; 
 }
 
-.hamburger-btn span {
-  width: 100%;
-  height: 3px;
-  background-color: var(--gold);
-  border-radius: 2px;
-  transition: all 0.3s ease;
+.nav-container { 
+    max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem; 
+    display: flex; justify-content: space-between; align-items: center; 
 }
 
-/* Hamburger animation when active */
-.hamburger-btn.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+/* Force horizontal layout for Desktop */
+.nav-links-container { 
+    display: flex !important; 
+    flex-direction: row !important;
+    gap: 2.5rem; 
+    list-style: none !important; 
+    margin: 0; 
+    padding: 0; 
+    align-items: center;
 }
 
-.hamburger-btn.active span:nth-child(2) {
-  opacity: 0;
+.nav-links-container li {
+    list-style: none !important;
 }
 
-.hamburger-btn.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+.nav-item { 
+    color: white; font-size: 1rem; font-weight: 500; transition: 0.3s; 
 }
 
-/* ============================================
-   TABLET STYLES (768px - 1024px)
-   ============================================ */
-@media (max-width: 1024px) {
-  .master-container {
-    padding: 0 1.5rem;
-  }
-
-  .header-spacing {
-    padding-top: 150px;
-    padding-bottom: 50px;
-  }
-
-  /* Hero section */
-  .hp-hero h1 {
-    font-size: clamp(2rem, 6vw, 3rem);
-  }
-
-  .hp-hero p {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-  }
-
-  /* Partner grid */
-  .hp-pt-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  /* What we do grid */
-  .wwd-grid {
-    grid-template-columns: 1fr;
-    gap: 40px 60px;
-  }
-
-  /* About grid */
-  .ab-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 250px 250px;
-    gap: 15px;
-  }
-
-  /* Services grid */
-  .sv-list-grid {
-    grid-template-columns: 1fr;
-    gap: 40px 30px;
-  }
-
-  .sv-item-featured {
-    width: 80%;
-  }
+.nb-hamburger {
+    display: none; /* Hidden on Desktop */
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
 }
 
-/* ============================================
-   MOBILE STYLES (max-width: 768px)
-   ============================================ */
+.nb-hamburger .bar { width: 28px; height: 2px; background-color: var(--gold); transition: 0.4s; }
+
+/* ============================================================
+   MOBILE RESPONSIVE OVERRIDES
+   ============================================================ */
+@media (max-width: 850px) {
+    .nb-hamburger { display: flex; }
+
+    .nav-links-container {
+        display: none !important; /* Hide the horizontal list */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.99);
+        flex-direction: column !important; /* Stack only on mobile */
+        justify-content: center;
+        transition: 0.5s ease;
+    }
+
+    .nav-links-container.open { 
+        display: flex !important; 
+        right: 0; 
+    }
+
+    /* Hamburger Animation */
+    .bar.top { transform: translateY(8px) rotate(45deg); }
+    .bar.mid { opacity: 0; }
+    .bar.bot { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* ============================================================
+   HOMEPAGE MOBILE OPTIMIZATION
+   ============================================================ */
 @media (max-width: 768px) {
-  /* Container adjustments */
-  .master-container {
-    padding: 0 1rem;
-  }
+    /* 1. Scale down the giant title */
+    .hp-hero h1 {
+        margin-top: 100px;
+        font-size: 2.2rem !important; /* Smaller size for phones */
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px;
+    }
 
-  .header-spacing {
-    padding-top: 100px;
-    padding-bottom: 40px;
-  }
+    /* 2. Scale down the gold subtitle */
+    .hp-hero .hp-gold {
+        font-size: 2.2rem !important;
+        margin-top: 5px !important;
+    }
 
-  /* ==========================================
-     NAVIGATION - HAMBURGER MENU
-     ========================================== */
-  
-  /* Show hamburger button */
-  .hamburger-btn {
-    display: flex;
-  }
+    /* 3. Adjust paragraph size and spacing */
+    .hp-hero p {
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        max-width: 100% !important;
+        padding: 0 15px;
+    }
 
-  /* Navigation container adjustments */
-  header {
-    padding: 1rem 0;
-  }
+    /* 4. Stack buttons vertically so they don't touch edges */
+    .cta-buttons, .hp-btn-wrap {
+        flex-direction: column !important;
+        gap: 15px !important;
+        margin-top: 35px !important;
+        padding: 0 20px;
+    }
 
-  header .master-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    /* 5. Make buttons full width on mobile */
+    .btn-gold, .btn-outline, .nb-btn-solid, .nb-btn-outline {
+        width: 100% !important;
+        min-width: unset !important;
+        padding: 0.8rem 1rem !important;
+    }
+}
 
-  /* Mobile menu overlay */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.98);
+/* Fix for even smaller phones (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .hp-hero h1 {
+        font-size: 1.9rem !important;
+    }
+}
+/* ============================================================
+   STRATEGIC PARTNERS MOBILE FIX
+   ============================================================ */
+@media (max-width: 768px) {
+    /* 1. Fix the heading alignment and size */
+    .hp-pt-title, .hp-pts-section h2 {
+        font-size: 1.8rem !important;
+        text-align: center !important; /* Center heading on mobile for better balance */
+        margin-bottom: 30px !important;
+    }
+
+    /* 2. Make the logo cards much larger on mobile */
+    .hp-pts-logo-card {
+        height: 140px !important; /* More height for mobile visibility */
+        width: 90% !important;
+        margin: 0 auto !important; /* Center the card itself */
+        padding: 20px !important;
+    }
+
+    /* 3. Scale up the logo inside the card */
+    .hp-pts-logo-card img {
+        max-height: 70px !important;
+        max-width: 85% !important;
+        filter: grayscale(0%) opacity(1) !important; /* Show full color on mobile by default */
+    }
+
+    /* 4. Swiper padding adjustment */
+    .hp-pts-swiper {
+        padding: 20px 0 50px !important;
+    }
+}
+
+/* --- CLEAN ARGON-STYLE FOOTER (REFINED) --- */
+.nb-footer-wrapper {
+    background-color: var(--black);
+    padding: 80px 0 40px;
+    border-top: 1px solid #111;
+}
+
+.nb-footer-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 2rem;
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
-    z-index: 1000;
-  }
-
-  nav.active {
-    transform: translateX(0);
-  }
-
-  nav a {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-  }
-
-  nav a:hover {
-    color: var(--gold);
-  }
-
-  /* Logo stays visible */
-  header .logo {
-    z-index: 1100;
-  }
-
-  /* ==========================================
-     HERO SECTION
-     ========================================== */
-  .hp-hero {
-    height: auto;
-    min-height: 100vh;
-    padding: 120px 1rem 60px;
-  }
-
-  .hp-hero h1 {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
-    letter-spacing: -0.5px;
-    margin-bottom: 20px;
-  }
-
-  .hp-hero .hp-gold {
-    margin-top: 8px;
-  }
-
-  .hp-hero p {
-    font-size: 1rem;
-    line-height: 1.7;
-    padding: 0 0.5rem;
-  }
-
-  /* Hero buttons */
-  .hp-btn-wrap {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 35px;
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .btn-gold,
-  .btn-outline {
-    width: 100%;
-    min-width: unset;
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
-  }
-
-  /* ==========================================
-     PARTNERS SECTION
-     ========================================== */
-  .hp-pt-section {
-    padding: 60px 0;
-  }
-
-  .hp-pt-title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
     text-align: center;
-    margin-bottom: 35px;
-  }
+}
 
-  .card-art {
-    padding: 25px;
-  }
+.nb-footer-brand h2 {
+    font-size: 2.2rem;
+    color: white;
+    font-weight: 800;
+    margin: 0 0 15px 0 !important; /* Zero indentation */}
 
-  .hp-pt-logo-container {
-    height: 50px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .hp-pt-logo-container img {
-    max-width: 150px;
-  }
-
-  .card-art h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  /* ==========================================
-     WHAT WE DO SECTION
-     ========================================== */
-  .wwd-wrapper {
-    padding-bottom: 60px;
-  }
-
-  .wwd-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-top: 40px;
-  }
-
-  .wwd-header {
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .wwd-number {
-    font-size: 1rem;
-    min-width: 20px;
-  }
-
-  .wwd-line {
-    width: 30px;
-  }
-
-  .wwd-title {
-    font-size: 1.1rem;
-  }
-
-  .wwd-desc {
-    padding-left: 0;
-    margin-top: 10px;
+.nb-footer-tagline {
+    color: #aaa;
     font-size: 0.95rem;
-    line-height: 1.6;
-  }
+    margin-bottom: 40px;
+}
 
-  /* ==========================================
-     ABOUT PAGE GRID
-     ========================================== */
-  .ab-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 15px;
-    margin-bottom: 50px;
-  }
-
-  .ab-img-box {
-    height: 200px;
-  }
-
-  .img-label {
-    bottom: 20px;
-    left: 20px;
-    font-size: 1.1rem;
-  }
-
-  /* ==========================================
-     SERVICES PAGE
-     ========================================== */
-  .sv-list-grid {
-    grid-template-columns: 1fr;
-    gap: 30px 20px;
-  }
-
-  .sv-item-featured {
-    width: 100%;
-    padding: 30px 20px;
-  }
-
-  .sv-item-featured h3 {
+.nb-footer-title {
     font-size: 1.4rem;
-  }
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--gold);
+}
 
-  .sv-item h3 {
-    font-size: 1.3rem;
-  }
+/* 2-Column Links for Mobile */
+.nb-footer-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 50px;
+    list-style: none;
+    padding: 0;
+}
 
-  /* ==========================================
-     TEAM PAGE
-     ========================================== */
-  .tm-frame {
-    padding: 8px;
-  }
-
-  /* ==========================================
-     CONTACT PAGE
-     ========================================== */
-  .nb-btn-contact {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-
-  /* ==========================================
-     FOOTER
-     ========================================== */
-  footer {
-    padding: 40px 0 20px;
-  }
-
-  .ft-logo {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  footer .master-container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-  }
-
-  footer .quick-links,
-  footer .get-in-touch {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  footer h4 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-  }
-
-  footer a {
-    font-size: 0.95rem;
-  }
-
-  .copyright {
+.nb-footer-links-grid li a {
+    color: #ccc;
     font-size: 0.85rem;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #222;
-  }
-
-  /* ==========================================
-     BACK LINK
-     ========================================== */
-  .nb-back-link {
-    font-size: 0.85rem;
-    margin-bottom: 20px;
-  }
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* ============================================
-   SMALL MOBILE STYLES (max-width: 480px)
-   ============================================ */
-@media (max-width: 480px) {
-  .master-container {
-    padding: 0 0.75rem;
-  }
-
-  .hp-hero h1 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
-  }
-
-  .hp-hero p {
-    font-size: 0.95rem;
-  }
-
-  .hp-pt-title {
-    font-size: 1.3rem;
-  }
-
-  .card-art {
-    padding: 20px;
-  }
-
-  .wwd-title {
-    font-size: 1rem;
-  }
-
-  .wwd-desc {
-    font-size: 0.9rem;
-  }
-
-  .sv-item h3 {
-    font-size: 1.15rem;
-  }
-
-  .ab-img-box {
-    height: 180px;
-  }
-
-  .img-label {
-    font-size: 1rem;
-  }
+/* Social Icons - Clean Row */
+.nb-footer-social-row {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 25px;
 }
 
-/* ============================================
-   LANDSCAPE ORIENTATION FIXES
-   ============================================ */
-@media (max-height: 500px) and (orientation: landscape) {
-  .hp-hero {
-    min-height: auto;
-    padding: 100px 1rem 40px;
-  }
-
-  nav {
-    gap: 1rem;
-    padding: 60px 0;
-    overflow-y: auto;
-  }
-
-  nav a {
-    font-size: 1.2rem;
-  }
+.nb-footer-social-row a {
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
 }
 
-/* ============================================
-   TOUCH DEVICE OPTIMIZATIONS
-   ============================================ */
-@media (hover: none) and (pointer: coarse) {
-  .card-art:hover {
-    transform: none;
-  }
-
-  .sv-item:hover {
-    transform: none;
-  }
-
-  .ab-img-box:hover img {
-    transform: none;
-  }
-
-  .btn-gold:active,
-  .btn-outline:active {
-    transform: scale(0.98);
-  }
+.nb-footer-social-row a:hover {
+    color: white;
 }
+
+.nb-footer-bottom-bar {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #111;
+    width: 100%;
+    color: #444;
+    font-size: 0.8rem;
+    text-align: center  ;
+}
+
+/* DESKTOP ALIGNMENT: 3 Columns, Left Aligned */
+@media (min-width: 851px) {
+    .nb-footer-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        text-align: left;
+        align-items: start;
+    }
+    .nb-footer-brand h2 { font-size: 1.8rem; color: var(--gold); }
+    .nb-footer-links-grid { grid-template-columns: 1fr; margin: 0; text-align: left; }
+    .nb-footer-social-row { justify-content: flex-start; }
+    .nb-footer-tagline { margin-bottom: 20px; }
+}
+
