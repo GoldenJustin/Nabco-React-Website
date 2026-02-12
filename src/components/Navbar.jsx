@@ -29,7 +29,7 @@ const Navbar = () => {
           <li><Link to="/" onClick={() => setIsOpen(false)} style={activeStyle('/')} className="nav-item">Home</Link></li>
           <li><Link to="/about" onClick={() => setIsOpen(false)} style={activeStyle('/about')} className="nav-item">About</Link></li>
           <li><Link to="/services" onClick={() => setIsOpen(false)} style={activeStyle('/services')} className="nav-item">Services</Link></li>
-          <li><Link to="/team" onClick={() => setIsOpen(false)} style={activeStyle('/team')} className="nav-item">Team</Link></li>
+          <li><Link to="/team" onClick={() => setIsOpen(false)} style={activeStyle('/team')} className="nav-item">Our Team</Link></li>
           <li><Link to="/contact" onClick={() => setIsOpen(false)} style={activeStyle('/contact')} className="nav-item">Contact Us</Link></li>
         </ul>
 

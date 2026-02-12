@@ -306,6 +306,143 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
 .sv-item:hover h3 { color: var(--gold) !important; }
 
 /* --- CONTACT PAGE BUTTON FIX --- */
+/* .nb-btn-contact {
+    background-color: var(--gold) !important;
+    color: black !important;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+.nb-btn-contact:hover {
+    background-color: #f4e4c1 !important;
+    transform: translateY(-3px);
+} */
+ /* CONTACT PAGE BASE STYLES */
+.ct-page-wrapper {
+    background: var(--black);
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.ct-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #222;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* FORM SECTION */
+.ct-form-section {
+    padding: 60px;
+    background: #0a0a0a;
+}
+
+.ct-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.ct-field-group label {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.ct-input, .ct-textarea {
+    width: 100%;
+    padding: 15px;
+    background: black;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+}
+
+.ct-input:focus, .ct-textarea:focus {
+    border-color: var(--gold);
+}
+
+.ct-error-text {
+    color: #ff4d4d;
+    margin-top: 10px;
+}
+
+/* INFO SECTION */
+.ct-info-section {
+    padding: 60px;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ct-info-title {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.ct-info-block {
+    margin-bottom: 25px;
+}
+
+.ct-info-block h4, .ct-hours-block h4 {
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.ct-info-block p {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+.ct-phone {
+    color: white !important;
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+.ct-hours-block {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+}
+
+.ct-hours-block p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* SUCCESS STATE */
+.ct-success-message {
+    text-align: center;
+    padding: 40px;
+}
+
+.ct-success-message h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.ct-success-message p {
+    color: white;
+}
+
+.ct-btn-auto {
+    width: auto !important;
+    margin-top: 20px;
+}
+
+/* BUTTON */
 .nb-btn-contact {
     background-color: var(--gold) !important;
     color: black !important;
@@ -324,6 +461,65 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
     transform: translateY(-3px);
 }
 
+/* --- MOBILE CUSTOMIZATION --- */
+@media (max-width: 992px) {
+    .ct-grid-container {
+        grid-template-columns: 1fr; /* Stack columns */
+        border: none; /* Cleaner look on mobile */
+    }
+
+    .ct-form-section, .ct-info-section {
+        padding: 40px 20px; /* Reduce padding for smaller screens */
+    }
+
+    .ct-info-section {
+        order: 2; /* Form stays on top, info goes below */
+        margin-top: 50px;
+    }
+
+    .ct-info-title {
+        font-size: 1.5rem;
+    }
+
+    .header-spacing h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* .tm-frame { 
+    border: 1px solid var(--gold); 
+    padding: 10px; 
+    border-radius: 4px; 
+    transition: 0.3s; 
+    background: transparent;
+}
+
+.tm-frame img { 
+    width: 100%; 
+    display: block; 
+    filter: grayscale(100%); 
+    transition: 0.7s ease; 
+}
+
+.tm-frame:hover img { 
+    filter: grayscale(0%); 
+} */
+
+/* --- TEAM PAGE STYLES --- */
+.tm-page-wrapper {
+    background: var(--black);
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.tm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Image Frame Logic */
 .tm-frame { 
     border: 1px solid var(--gold); 
     padding: 10px; 
@@ -343,10 +539,77 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
     filter: grayscale(0%); 
 }
 
-/* FT - FOOTER LOGO FIX */
-/* .ft-logo { font-size: 1.8rem; color: var(--gold); font-weight: 700; margin: 0 !important; padding: 0 !important; text-align: left; }
-.swiper-slide { height: auto !important; display: flex !important; }
-.swiper-pagination-bullet-active { background: var(--gold) !important; } */
+/* Typography */
+.tm-content-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: justify;
+}
+
+.tm-content-intro p, .tm-bottom-section p {
+    color: #ccc;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.tm-text-highlight {
+    /* Optional: can make the first paragraph slightly brighter */
+    color: white !important;
+}
+
+.tm-bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-top: 1px solid #222;
+    padding-top: 60px;
+    margin-top: 60px;
+    text-align: justify;
+}
+
+.tm-text-secondary {
+    color: #aaa !important; /* Slightly dimmer for the final paragraph */
+}
+
+/* --- MOBILE CUSTOMIZATION --- */
+@media (max-width: 992px) {
+    .tm-grid {
+        grid-template-columns: 1fr; /* Stack image and text */
+        gap: 40px;
+    }
+
+    .tm-frame {
+        max-width: 400px; /* Prevent image from becoming too huge on tablets */
+        margin: 0 auto; /* Center the image */
+    }
+
+    .tm-content-intro, .tm-bottom-section {
+        text-align: left; /* Justified text looks messy on narrow mobile screens */
+        gap: 20px;
+    }
+
+    .tm-content-intro p, .tm-bottom-section p {
+        font-size: 1.1rem; /* Slightly smaller for mobile readability */
+        line-height: 1.6;
+    }
+
+    .tm-bottom-section {
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+
+    .header-spacing h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tm-frame {
+        max-width: 100%; /* Allow full width on small phones */
+    }
+}
+
 
 /* ============================================================
    NAVIGATION - CLEAN & ARTISTIC (FIXED)
@@ -519,7 +782,7 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
 
 .nb-footer-brand h2 {
     font-size: 2.2rem;
-    color: white;
+    color: var(--gold);
     font-weight: 800;
     margin: 0 0 15px 0 !important; /* Zero indentation */}
 
@@ -598,4 +861,82 @@ h1 { font-size: var(--fs-h1); font-weight: 700; color: var(--gold); line-height:
     .nb-footer-social-row { justify-content: flex-start; }
     .nb-footer-tagline { margin-bottom: 20px; }
 }
+/* ============================================================
+   ABOUT PAGE: MOBILE-ONLY RESPONSIVENESS
+   ============================================================ */
+@media (max-width: 850px) {
+    /* 1. Force the grid to 1 column and reset the height logic */
+    .ab-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 30px !important;
 
+    }
+
+    /* 2. Fix the image boxes so they don't disappear/stretch incorrectly */
+    .ab-img-box {
+        grid-row: auto !important; /* Removes the 'span 2' logic from Box 1 */
+        height: 300px !important;   /* Sets a clean height for mobile stacking */
+    }
+
+    /* 3. Adjust the top text container for narrow screens */
+    .master-container > div[style*="maxWidth: 1000px"] {
+        max-width: 100% !important;
+    }
+
+    /* 4. Scale down the labels slightly for smaller screens */
+    .img-label {
+        font-size: 1.1rem !important;
+        bottom: 20px !important;
+        left: 20px !important;
+    }
+    .header-spacing{
+        padding-top: 120px !important;
+        padding-bottom: 40px !important;
+    }
+
+}
+
+/* MOBILE CUSTOMIZATION */
+@media (max-width: 768px) {
+    /* Reset grid to a single column */
+    .sv-list-grid {
+        grid-template-columns: 1fr;
+        gap: 0; /* Remove the large gaps to use borders instead */
+    }
+
+    /* Reset the 5th item wrapper so it behaves like the others */
+    .sv-item-centered-wrapper {
+        display: block;
+        margin-top: 0;
+    }
+
+    /* Match the screenshot's list style */
+    .sv-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Thin white line */
+        padding: 25px 0; /* Vertical spacing between items */
+        transition: none; /* Usually better to disable transforms on mobile touch */
+    }
+
+    .sv-item:hover {
+        transform: none; /* Prevent horizontal shift on touch */
+    }
+
+    .sv-item h3 {
+        font-size: 1.4rem; /* Slightly smaller for mobile */
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Header adjustments */
+    .header-spacing h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .header-spacing p {
+        font-size: 1.1rem !important;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+}
