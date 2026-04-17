@@ -11,6 +11,7 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </main>
         <Footer />
